@@ -1,0 +1,75 @@
+@import "mocha.css";
+
+* {
+  font-family: FiraCode Nerd Font;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+  margin: 5px 5px;
+}
+
+#workspaces {
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: @surface0;
+  margin-left: 1rem;
+}
+
+#workspaces button {
+  color: @rosewater;
+  border-radius: 1rem;
+  padding: 0.4rem;
+}
+
+#window,
+#custom-music,
+#tray,
+#language,
+#network,
+#backlight,
+#clock,
+#battery,
+#pulseaudio {
+  background-color: @surface0;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+#window {
+  color: @mauve;
+  border-radius: 1rem;
+}
+
+window#waybar.empty #window {
+  background-color:transparent;
+}
+  
+#tray {
+  border-radius: 1rem 0px 0px 1rem;
+}
+
+#language {
+  color: @peach;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#pulseaudio {
+  color: @yellow;
+}
+
+#clock {
+  color: @blue;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 1rem;
+}

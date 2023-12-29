@@ -1,0 +1,87 @@
+{
+    "layer": "top", // Waybar at top layer
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modulesaround
+    "modules-left": ["hyprland/workspaces", "custom/media"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["tray",  "hyprland/language", "backlight", "battery", "pulseaudio", "clock"],
+     "image": {
+     	 "path": "~/.config/waybar/asahi.svg",
+	 "size": 14
+     },
+
+     "hyprland/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+	 "format": " {icon} ",
+         "format-icons": {
+             "urgent": "",
+             "active": "",
+             "default": ""
+         }
+     },
+     "hyprland/window": {
+       "max-length": 40,
+     },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "tray": {
+        "spacing": 6 
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}",
+	"format": "{:%I:%M %p}"
+    },
+    "hyprland/language": {
+    	"format-en": "en",
+	"format-fr": "fr",
+	"format-it": "it"
+    },
+
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            "warning": 15,
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+	"format-warning": "󰂃 {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["󰁺", "󰁻", "󰁽", "󰁽", "󰁿", "󰂁", "󰁹"]
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+}
+
