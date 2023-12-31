@@ -3,7 +3,7 @@
 * {
   font-family: FiraCode Nerd Font;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 #waybar {
@@ -23,6 +23,10 @@
   color: @rosewater;
   border-radius: 1rem;
   padding: 0.4rem;
+}
+
+#workspaces button.active {
+  color: @pink;
 }
 
 #window,
@@ -48,12 +52,14 @@ window#waybar.empty #window {
   background-color:transparent;
 }
   
-#tray {
-  border-radius: 1rem 0px 0px 1rem;
-}
-
 #language {
   color: @peach;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+#network {
+  color: @maroon;
 }
 
 #battery {
@@ -72,4 +78,8 @@ window#waybar.empty #window {
   color: @blue;
   border-radius: 0px 1rem 1rem 0px;
   margin-right: 1rem;
+}
+
+#tray {
+  border-radius: 1rem
 }

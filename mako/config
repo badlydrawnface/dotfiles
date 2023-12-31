@@ -1,5 +1,5 @@
 font=FiraCode Nerd Font Ret 10
-icon-path=/home/bdface/.local/share/icons/Papirus-Dark
+icon-path=/usr/share/icons/Papirus-Dark
 border-radius=20
 default-timeout=5
 
