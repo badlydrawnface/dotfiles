@@ -1,7 +1,7 @@
 @import "mocha.css";
 
 * {
-  font-family: FiraCode Nerd Font;
+  font-family: Iosevka Nerd Font;
   font-weight: bold;
   font-size: 14px;
 }
@@ -9,24 +9,26 @@
 #waybar {
   background: transparent;
   color: @text;
-  margin: 5px 5px;
+  margin: 2px 2px;
 }
 
 #workspaces {
   border-radius: 1rem;
   margin: 5px;
+  margin-top: 2px;
   background-color: @surface0;
   margin-left: 1rem;
-}
+  box-shadow: 3px 3px @surface2;
+}  
 
 #workspaces button {
-  color: @rosewater;
+  color: @surface2;
   border-radius: 1rem;
   padding: 0.4rem;
 }
 
 #workspaces button.active {
-  color: @pink;
+  color: @rosewater;
 }
 
 #window,
@@ -41,15 +43,20 @@
   background-color: @surface0;
   padding: 0.5rem 1rem;
   margin: 5px 0;
+  box-shadow: 3px 3px @surface2;
 }
 
 #window {
   color: @mauve;
   border-radius: 1rem;
+  margin-right: 4px;
 }
 
 window#waybar.empty #window {
   background-color:transparent;
+
+  /** get rid of the box shadow**/
+  box-shadow: 0px 0px;
 }
   
 #language {
@@ -81,5 +88,6 @@ window#waybar.empty #window {
 }
 
 #tray {
-  border-radius: 1rem
+  border-radius: 1rem;
+  margin-right: 3px;
 }

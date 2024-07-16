@@ -1,6 +1,4 @@
 {
-    "layer": "top", // Waybar at top layer
-    "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modulesaround
     "modules-left": ["hyprland/workspaces", "custom/media"],
     "modules-center": ["hyprland/window"],
@@ -43,10 +41,10 @@
 	"format": "{:%I:%M %p}"
     },
     "hyprland/language": {
-    	"format": "󰌌 {}",
-    	"format-en": "EN",
-	"format-fr": "FR",
-	"format-it": "IT"
+    	"format": "󰌌  {}",
+    	"format-en": "en",
+	"format-fr": "fr",
+	"format-it": "it"
     },
 
     "backlight": {
