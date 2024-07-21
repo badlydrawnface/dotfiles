@@ -1,0 +1,52 @@
+@import url("../waybar/mocha.css");
+
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(30, 30, 46, 0.8)}
+
+button {
+    border-color: @surface1;
+	text-decoration-color: @text;
+	background-color: @surface0;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 1rem;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+	margin: 3px
+}
+
+button:focus, button:active, button:hover {
+	background-color: @teal;
+	color: @surface0;
+	outline-style: none;
+}
+
+#lock {
+    background-image: image(url("icons/lock.svg"));
+}
+
+#logout {
+    background-image: image(url("icons/logout.svg"));
+}
+
+#suspend {
+    background-image: image(url("icons/suspend.svg"));
+}
+
+#hibernate {
+    background-image: image(url("icons/hibernate.svg"));
+}
+
+#shutdown {
+    background-image: image(url("icons/shutdown.svg"));
+}
+
+#reboot {
+    background-image: image(url("icons/reboot.svg"));
+}
