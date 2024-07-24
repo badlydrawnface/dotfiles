@@ -2,11 +2,7 @@
     // Choose the order of the modulesaround
     "modules-left": ["hyprland/workspaces", "custom/media"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["tray",  "hyprland/language", "backlight", "network", "battery", "pulseaudio", "clock"],
-     "image": {
-     	 "path": "~/.config/waybar/asahi.svg",
-	 "size": 14
-     },
+    "modules-right": ["tray", "hyprland/language", "custom/pacman", "backlight", "network", "battery", "pulseaudio", "clock"],
 
      "hyprland/workspaces": {
          "disable-scroll": true,
@@ -14,11 +10,18 @@
          "warp-on-scroll": false,
 	 "format": " {icon} ",
          "format-icons": {
-             "urgent": "",
-             "active": "",
-             "default": ""
+	     "1": "1",
+	     "2": "2",
+	     "3": "3",
+	     "4": "4",
+	     "5": "5",
+	     "6": "6",
+	     "7": "7",
+	     "8": "8",
+	     "9": "9"
          }
      },
+
      "hyprland/window": {
        "max-length": 40,
      },
@@ -31,13 +34,26 @@
             "unlocked": ""
         }
     },
+
     "tray": {
         "spacing": 6 
     },
+    
+    "custom/pacman": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "format-icons": {
+          "pending-updates": " ",
+          "updated": ""
+        },
+        "exec-if": "which waybar-updates",
+        "exec": "waybar-updates"
+    },
+
     "clock": {
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%m-%d-%Y}",
 	"format": "{:%I:%M %p}"
     },
     "hyprland/language": {
@@ -69,21 +85,23 @@
         "format-alt": "{icon} {time}",
         "format-icons": ["󰁺", "󰁻", "󰁽", "󰁽", "󰁿", "󰂁", "󰁹"]
     },
+
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+	"format": "{icon} {volume}%",
+	"format-muted": " ",
+	"format-icons": {
+	"default": [" ", " ", " "]
+	},
     },
+
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
         "max-length": 40,
         "format-icons": {
-            "spotify": "",
-            "default": "🎜"
+            "spotify": " ",
+            "default": "🎜 "
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder

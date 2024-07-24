@@ -1,62 +1,75 @@
+/** https://github.com/catppuccin/waybar **/
 @import "mocha.css";
 
 * {
   font-family: Iosevka Nerd Font;
   font-weight: bold;
   font-size: 14px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
 }
 
-#waybar {
-  background: transparent;
-  color: @text;
-  margin: 2px 2px;
+window#waybar {
+  background-color: rgba(30, 30, 46, 0.5);
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 #workspaces {
   border-radius: 1rem;
   margin: 5px;
-  margin-top: 2px;
-  background-color: @surface0;
+  background-color: @base;
   margin-left: 1rem;
-  box-shadow: 3px 3px @surface2;
 }  
 
 #workspaces button {
-  color: @surface2;
-  border-radius: 1rem;
-  padding: 0.4rem;
+  min-width: 0;
+  color: @text;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
 }
 
 #workspaces button.active {
-  color: @rosewater;
+  background-color: @rosewater;
+  margin: 5px 5px;
+  color: @base;
+}
+
+#workspaces button.urgent {
+  color: @red;
 }
 
 #window,
-#custom-music,
 #tray,
 #language,
 #network,
+#custom-media,
 #backlight,
 #clock,
 #battery,
+#custom-pacman,
 #pulseaudio {
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
+  background-color: @base;
   margin: 5px 0;
-  box-shadow: 3px 3px @surface2;
+  padding: 0rem 0.75rem;
+}
+
+#custom-media {
+  background-color: @green;
+  color: @base;
+  border-radius: 1rem;
+  margin-left: 4rem;
 }
 
 #window {
   color: @mauve;
   border-radius: 1rem;
-  margin-right: 4px;
 }
 
 window#waybar.empty #window {
   background-color:transparent;
-
-  /** get rid of the box shadow**/
-  box-shadow: 0px 0px;
 }
   
 #language {
@@ -65,8 +78,12 @@ window#waybar.empty #window {
   margin-left: 1rem;
 }
 
+#custom-pacman {
+  color: @sky;
+}
+
 #network {
-  color: @maroon;
+  color: @teal;
 }
 
 #battery {
@@ -89,5 +106,4 @@ window#waybar.empty #window {
 
 #tray {
   border-radius: 1rem;
-  margin-right: 3px;
 }
