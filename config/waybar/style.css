@@ -18,22 +18,21 @@ window#waybar {
 }
 
 #workspaces {
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   margin: 5px;
   background-color: @base;
   margin-left: 1rem;
 }  
 
 #workspaces button {
-  min-width: 0;
+  min-width: 2em;
   color: @text;
-  padding: 0.2rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
 }
 
 #workspaces button.active {
   background-color: @rosewater;
-  margin: 5px 5px;
+  margin: 2px 2px;
   color: @base;
 }
 
@@ -53,7 +52,7 @@ window#waybar {
 #pulseaudio {
   background-color: @base;
   margin: 5px 0;
-  padding: 0rem 0.75rem;
+  padding: 0rem 0.75rem 0rem;
 }
 
 #custom-media {
