@@ -17,9 +17,9 @@ status bar: [waybar](https://github.com/Alexays/Waybar)<br>
 👋 logout screen: [wlogout](https://github.com/ArtsyMacaw/wlogout)<br>
 
 
-###### Desktop
+###### Desktop [(wallpaper)](https://wallhaven.cc/w/83ox2k)
 ![Hyprland Desktop with waybar](images/desktop.png)
 
 
-###### Lockscreen
+###### Lockscreen [(wallpaper)](https://wallhaven.cc/w/nml81k)
 ![Hyprlock lockscreen](images/hyprlock.png)
