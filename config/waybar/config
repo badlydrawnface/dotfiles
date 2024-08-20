@@ -5,7 +5,7 @@
     "modules-right": ["tray", "hyprland/language", "custom/pacman", "backlight", "network", "battery", "pulseaudio", "clock"],
 
      "hyprland/workspaces": {
-         "disable-scroll": true,
+         "disable-scroll": false,
          "all-outputs": true,
          "warp-on-scroll": false,
 	 "format": " {icon} ",
@@ -89,7 +89,7 @@
     "pulseaudio": {
         "on-click": "pavucontrol",
 	"format": "{icon} {volume}%",
-	"format-muted": " ",
+	"format-muted": " ",
 	"format-icons": {
 	"default": [" ", " ", " "]
 	},

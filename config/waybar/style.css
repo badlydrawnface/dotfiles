@@ -6,7 +6,8 @@
   font-weight: bold;
   font-size: 14px;
   min-height: 0;
-  padding: 0;
+  /** change padding to make the bar thinner or thicker **/
+  padding: 0.5px;
   margin: 0;
   border-radius: 0;
 }
@@ -31,7 +32,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background-color: @rosewater;
+  background-color: @lavender;
   margin: 2px 2px;
   color: @base;
 }

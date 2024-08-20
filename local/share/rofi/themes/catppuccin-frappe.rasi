@@ -1,6 +1,7 @@
 * {
-    bg-col:  #303446;
-    bg-col-light: #303446;
+    bg-col:  #30344678;
+    bg-col-light: #30344678;
+    bg-col-solid: #3034466;
     border-col: #ca9ee6;
     selected-col: #303446;
     blue: #8caaee;
@@ -39,7 +40,7 @@ inputbar {
 prompt {
     background-color: @blue;
     padding: 6px;
-    text-color: @bg-col;
+    text-color: @bg-col-solid;
     border-radius: 3px;
     margin: 20px 0px 0px 20px;
 }
