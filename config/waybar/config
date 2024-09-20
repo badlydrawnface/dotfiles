@@ -1,8 +1,13 @@
 {
     // Choose the order of the modulesaround
-    "modules-left": ["hyprland/workspaces", "custom/media"],
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/media"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["tray", "hyprland/language", "custom/pacman", "backlight", "network", "battery", "pulseaudio", "clock"],
+     
+     "custom/launcher": {
+         "on-click": "rofi -show drun -show emoji",
+	 "format": " "
+     },
 
      "hyprland/workspaces": {
          "disable-scroll": false,
@@ -51,9 +56,9 @@
     },
 
     "clock": {
-        // "timezone": "America/New_York",
+        "timezone": "America/New_York",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%m-%d-%Y}",
+        "format-alt": "{:%m/%d/%Y}",
 	"format": "{:%I:%M %p}"
     },
     "hyprland/language": {

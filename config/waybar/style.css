@@ -18,6 +18,13 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
+#custom-launcher {
+  color: @sky;
+  font-size: 20px;
+  margin: 5px;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+
 #workspaces {
   border-radius: 0.75rem;
   margin: 5px;
