@@ -24,6 +24,7 @@ window#waybar {
   margin: 5px;
   margin-left: 1rem;
   border-radius: 0.5rem;
+}
 
 #workspaces {
   border-radius: 0.75rem;
