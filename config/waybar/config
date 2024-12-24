@@ -1,5 +1,4 @@
 {
-    // Choose the order of the modulesaround
     "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/media"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["tray", "hyprland/language", "custom/pacman", "backlight", "network", "battery", "pulseaudio", "clock"],
@@ -30,29 +29,9 @@
      "hyprland/window": {
        "max-length": 40,
      },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
 
     "tray": {
-        "spacing": 6 
-    },
-    
-    "custom/pacman": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "format-icons": {
-          "pending-updates": " ",
-          "updated": ""
-        },
-        "exec-if": "which waybar-updates",
-        "exec": "waybar-updates"
+        "spacing": 6
     },
 
     "clock": {
@@ -61,8 +40,9 @@
         "format-alt": "{:%m/%d/%Y}",
 	"format": "{:%I:%M %p}"
     },
+
     "hyprland/language": {
-    	"format": "󰌌  {}",
+    	"format": "󰌌   {}",
     	"format-en": "en",
 	"format-fr": "fr",
 	"format-it": "it"
@@ -70,14 +50,15 @@
 
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon} {percent}%",
+        "format": "{icon}  {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
 
     "network": {
     	"interface": "enp34s0",
 	"interval": 3,
-    	"format": " {bandwidthDownBytes}"
+    	"format": "  {bandwidthDownBytes}",
+	"on-click": "nmtui"
     },
 
     "battery": {
@@ -93,7 +74,7 @@
 
     "pulseaudio": {
         "on-click": "pavucontrol",
-	"format": "{icon} {volume}%",
+	"format": "{icon}   {volume}%",
 	"format-muted": " ",
 	"format-icons": {
 	"default": [" ", " ", " "]
@@ -111,6 +92,22 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+
+    "tray": {
+    	"show-passive-items": true,
+	"spacing": 10
+    },
+
+    "custom/pacman": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "format-icons": {
+          "pending-updates": " ",
+          "updated": ""
+        },
+
+        "exec-if": "which waybar-updates",
+        "exec": "waybar-updates"
     }
 }
-

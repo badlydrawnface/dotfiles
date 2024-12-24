@@ -2,7 +2,7 @@
 @import "mocha.css";
 
 * {
-  font-family: Iosevka Nerd Font;
+  font-family: Inter, Iosevka Nerd Font;
   font-weight: bold;
   font-size: 14px;
   min-height: 0;
@@ -19,7 +19,7 @@ window#waybar {
 }
 
 #custom-launcher {
-  color: @sky;
+  color: @maroon;
   font-size: 20px;
   margin: 5px;
   margin-left: 1rem;
@@ -29,7 +29,7 @@ window#waybar {
 #workspaces {
   border-radius: 0.75rem;
   margin: 5px;
-  background-color: @base;
+  background-color: @surface0;
   margin-left: 1rem;
 }  
 
@@ -40,7 +40,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background-color: @lavender;
+  background-color: @maroon;
   margin: 2px 2px;
   color: @base;
 }
@@ -59,20 +59,19 @@ window#waybar {
 #battery,
 #custom-pacman,
 #pulseaudio {
-  background-color: @base;
+  color: @sapphire;
+  background-color: @surface0;
   margin: 5px 0;
   padding: 0rem 0.75rem 0rem;
 }
 
 #custom-media {
   background-color: @green;
-  color: @base;
   border-radius: 1rem;
   margin-left: 4rem;
 }
 
 #window {
-  color: @mauve;
   border-radius: 1rem;
 }
 
@@ -81,33 +80,15 @@ window#waybar.empty #window {
 }
   
 #language {
-  color: @peach;
   border-radius: 1rem 0px 0px 1rem;
   margin-left: 1rem;
-}
-
-#custom-pacman {
-  color: @sky;
-}
-
-#network {
-  color: @teal;
-}
-
-#battery {
-  color: @green;
 }
 
 #battery.warning:not(.charging) {
   color: @red;
 }
 
-#pulseaudio {
-  color: @yellow;
-}
-
 #clock {
-  color: @blue;
   border-radius: 0px 1rem 1rem 0px;
   margin-right: 1rem;
 }
