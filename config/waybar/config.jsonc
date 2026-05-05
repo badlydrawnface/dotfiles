@@ -1,0 +1,139 @@
+{
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "custom/media"
+    ],
+    "modules-center": [
+        ""
+    ],
+    "modules-right": [
+        "hyprland/language",
+        "tray",
+        "custom/pacman",
+        "network",
+        "battery",
+        "pulseaudio",
+        "clock"
+    ],
+
+    "custom/launcher": {
+        "on-click": "vicinae open",
+        "format": " ",
+        "tooltip-format": "Open Menu"
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": " {icon} ",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9"
+        }
+    },
+
+    "hyprland/window": {
+        "max-length": 40
+    },
+
+    "tray": {
+        "spacing": 6
+    },
+
+    "clock": {
+        "timezone": "America/New_York",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%m/%d/%Y}",
+        "format": "{:%I:%M %p}"
+    },
+
+    "hyprland/language": {
+        "format": "󰌌 {}",
+        "format-en": "en",
+        "format-fr": "fr",
+        "format-it": "it"
+    },
+
+    "network": {
+        "interval": 3,
+        "format": "{}",
+        "format-wifi": "󰖩 ",
+        "format-ethernet": "󰈀 ",
+        "format-disconnected": "󰌙",
+        "tooltip-format": " {bandwidthDownBytes}\n {bandwidthUpBytes}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n {bandwidthDownBytes}\n {bandwidthUpBytes}",
+        "tooltip-format-ethernet": "{ifname} \n {bandwidthDownBytes}\n {bandwidthUpBytes}",
+        "on-click": "impala"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 15
+        },
+        "format": "{icon}",
+        "format-charging": "󰂄",
+        "format-warning": "󰂃 {capacity}%",
+        "tooltip-format": "{capacity}%, {time}",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁽",
+            "󰁽",
+            "󰁿",
+            "󰂁",
+            "󰁹"
+        ]
+    },
+
+    "pulseaudio": {
+        "on-click": "pavucontrol",
+        "format": "{icon}",
+        "format-muted": " ",
+        "format-icons": {
+            "default": [
+                " ",
+                " ",
+                " "
+            ]
+        }
+    },
+
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": " ",
+            "default": "🎜 "
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+
+    "tray": {
+        "show-passive-items": true,
+        "spacing": 10
+    },
+
+    "custom/pacman": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "format-icons": {
+            "pending-updates": " ",
+            "updated": ""
+        },
+
+        "exec-if": "which waybar-updates",
+        "exec": "waybar-updates"
+    }
+}

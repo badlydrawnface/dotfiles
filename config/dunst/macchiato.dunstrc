@@ -1,0 +1,9 @@
+[global]
+frame_color = "#a6da95"
+background = "#24273a"
+foreground = "#cad3f5"
+separator_color= frame
+font = "FantasqueSansM Nerd Font 12"
+
+[urgency_critical]
+frame_color = "#f5a97f"

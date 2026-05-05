@@ -1,0 +1,24 @@
+@import "current.css";
+
+window {
+  border-radius: 0.5rem;
+  opacity: 0.95;
+  border: 2px solid @overlay2;
+
+  background-color: @base;
+}
+
+label {
+  font-family: "FantasqueSansM Nerd Font";
+  font-size: 12pt;
+
+  color: @text;
+}
+
+image {
+  color: @text;
+}
+
+progress {
+  background-color: @accent;
+}

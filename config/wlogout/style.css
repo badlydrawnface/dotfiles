@@ -1,34 +1,35 @@
-@import url("../waybar/mocha.css");
-
-* {
-	background-image: none;
-	box-shadow: none;
-}
+@import url("../waybar/current.css");
 
 window {
-	background-color: rgba(30, 30, 46, 0.8)}
+	background-color: alpha(@base, 0.8);
+}
 
 button {
     border-color: @surface1;
 	text-decoration-color: @text;
 	background-color: @surface0;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 2px;
 	border-radius: 1rem;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 25%;
-	margin: 3px
+	margin: 3px;
 }
 
 button:focus, button:active, button:hover {
-	background-color: @teal;
-	color: @surface0;
+	background-color: @green;
+	color: @crust;
 	outline-style: none;
 }
 
 #lock {
     background-image: image(url("icons/lock.svg"));
+}
+
+#lock:hover, #logout:hover, #suspend:hover, #shutdown:hover, #reboot:hover {
+    background-color: @crust;
+    color: @text;
 }
 
 #logout {
@@ -37,10 +38,6 @@ button:focus, button:active, button:hover {
 
 #suspend {
     background-image: image(url("icons/suspend.svg"));
-}
-
-#hibernate {
-    background-image: image(url("icons/hibernate.svg"));
 }
 
 #shutdown {

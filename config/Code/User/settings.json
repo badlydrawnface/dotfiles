@@ -1,0 +1,12 @@
+{
+    "workbench.iconTheme": "catppuccin-latte",
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "catppuccin.accentColor": "green",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
+    "workbench.preferredLightColorTheme": "Catppuccin Latte",
+    "window.autoDetectColorScheme": true,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "editor.fontFamily": "'FantasqueSansM Nerd Font', monospace",
+    "editor.fontSize": 16
+}

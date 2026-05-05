@@ -1,0 +1,1 @@
+/home/bdface/.config/hypr/themes/latte.lua

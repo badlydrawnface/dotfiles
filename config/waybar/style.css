@@ -1,47 +1,51 @@
 /** https://github.com/catppuccin/waybar **/
-@import "mocha.css";
+@import "current.css";
 
 * {
-  font-family: Inter, Iosevka Nerd Font;
+  font-family: FantasqueSansMNerd Font;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   min-height: 0;
-  /** change padding to make the bar thinner or thicker **/
-  padding: 0.5px;
-  margin: 0;
-  border-radius: 0;
 }
 
 window#waybar {
-  background-color: rgba(30, 30, 46, 0.5);
+  background-color: alpha(@base, 0.5);
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 
 #custom-launcher {
-  color: @maroon;
+  color: @green;
   font-size: 20px;
-  margin: 5px;
-  margin-left: 1rem;
-  border-radius: 0.5rem;
+  background-color: @base;
+  border-bottom: solid @overlay2 2px;
+  padding-left: 0.5rem;
 }
 
 #workspaces {
-  border-radius: 0.75rem;
-  margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
+  border-bottom: solid @overlay2 2px;
+  border-right: solid @overlay2 2px;
+  border-radius: 0 0 0.85rem 0;
+  padding: 2px;
+  color: @text;
+  background-color: @base;
 }  
 
 #workspaces button {
-  min-width: 2em;
-  color: @text;
-  border-radius: 0.75rem;
+  min-width: 2px;
+  padding: 0 2px;
+  color: @overlay2;
+  border-radius: 1rem;
+  min-width: 0px;
+  transition: all 0.25s ease;
 }
 
 #workspaces button.active {
-  background-color: @maroon;
-  margin: 2px 2px;
+  min-width: 40px;
+  padding: 0 10px;
+  background-color: @green;
+  margin: 2px;
+  min-width: 2.3em;
   color: @base;
 }
 
@@ -59,40 +63,22 @@ window#waybar {
 #battery,
 #custom-pacman,
 #pulseaudio {
-  color: @sapphire;
-  background-color: @surface0;
-  margin: 5px 0;
-  padding: 0rem 0.75rem 0rem;
+  border-bottom: solid @overlay2 2px;
+  color: @text;
+  background-color: @base;
+  padding: 8px; 
 }
-
-#custom-media {
-  background-color: @green;
-  border-radius: 1rem;
-  margin-left: 4rem;
-}
-
-#window {
-  border-radius: 1rem;
-}
-
 window#waybar.empty #window {
   background-color:transparent;
 }
   
-#language {
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
-}
-
 #battery.warning:not(.charging) {
   color: @red;
 }
 
-#clock {
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
-}
 
-#tray {
-  border-radius: 1rem;
+#language {
+  border-radius: 0 0 0 0.85em;
+  border-left: solid @overlay2 2px;
+  border-bottom: solid @overlay2 2px;
 }

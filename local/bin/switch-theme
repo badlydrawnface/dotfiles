@@ -1,0 +1,140 @@
+#! /bin/bash
+
+## Switch themes for:
+## GTK
+## kitty
+## Hypreverything
+## Waybar
+## Qt
+## Icons
+## Wallpaper
+
+function init() {
+  if ! command -v gum &>/dev/null; then
+    echo "gum is not installed. Please install it to run this function."
+    exit 1
+  fi
+  gum choose --header "Select a flavor" "Latte" "Macchiato" "Mocha" | while read -r flavor; do
+    case $flavor in
+      "Latte")
+        latte
+        ;;
+      "Macchiato")
+        macchiato
+        ;;
+      "Mocha")
+        ## TODO
+        ;;
+    esac
+  restartproc
+  done
+}
+
+function latte() {
+  # change gtk theming
+  gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+  gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
+  gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-green-light'
+  sed -i "s/^gtk-application-prefer-dark-theme=.*/gtk-application-prefer-dark-theme=0/" ~/.config/gtk-3.0/settings.ini
+
+
+  # change gtk colors
+  ln -sf ~/.config/gtk-3.0/catppuccin-latte-green.css ~/.config/gtk-3.0/gtk.css
+  ln -sf ~/.config/gtk-4.0/catppuccin-latte-green.css ~/.config/gtk-4.0/gtk.css
+
+  # hyprland
+  ln -sf ~/.config/hypr/themes/latte.conf ~/.config/hypr/themes/current.conf
+  ln -sf ~/.config/hypr/themes/latte.lua ~/.config/hypr/themes/current.lua
+
+  # Waybar
+  ln -sf ~/.config/waybar/latte.css ~/.config/waybar/current.css
+
+  # Wallpaper
+  ln -sf ~/Pictures/albany_latte.jpg ~/Pictures/current
+
+  # qt, kde accent
+  sed -i "s/^color_scheme_path=.*/color_scheme_path=\/home\/$USER\/.config\/qt6ct\/colors\/catppuccin-latte-green.conf/" ~/.config/qt6ct/qt6ct.conf
+  sed -i "s/^icon_theme=.*/icon_theme=Tela-circle-green-light/" ~/.config/qt6ct/qt6ct.conf
+  sed -i "s/^AccentColor=.*/AccentColor=64,160,43/" ~/.config/kdeglobals
+
+  # cava
+  ln -sf ~/.config/cava/theme/latte.cava ~/.config/cava/themes/current_theme.cava
+
+  # swayosd
+  ln -sf ~/.config/swayosd/latte.css ~/.config/swayosd/current.css
+
+  # btop
+  sed -i 's/catppuccin_macchiato\.theme/catppuccin_latte.theme/' "$HOME/.config/btop/btop.conf"
+
+  # dunst
+  ln -sf ~/.config/dunst/macchiato.dunstrc ~/.config/dunst/dunstrc
+
+  restartproc
+  echo "Switched to light mode"
+}
+
+function macchiato() {
+  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+  gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
+  gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-green-dark'
+  sed -i "s/^gtk-application-prefer-dark-theme=.*/gtk-application-prefer-dark-theme=1/" ~/.config/gtk-3.0/settings.ini
+
+  ln -sf ~/.config/gtk-3.0/catppuccin-macchiato-green.css ~/.config/gtk-3.0/gtk.css
+  ln -sf ~/.config/gtk-4.0/catppuccin-macchiato-green.css ~/.config/gtk-4.0/gtk.css
+
+  ln -sf ~/.config/hypr/themes/macchiato.conf ~/.config/hypr/themes/current.conf
+  ln -sf ~/.config/hypr/themes/macchiato.lua ~/.config/hypr/themes/current.lua
+
+  ln -sf ~/.config/waybar/macchiato.css ~/.config/waybar/current.css
+
+  sed -i "s/^color_scheme_path=.*/color_scheme_path=\/home\/$USER\/.config\/qt6ct\/colors\/catppuccin-macchiato-green.conf/" ~/.config/qt6ct/qt6ct.conf
+  sed -i "s/^icon_theme=.*/icon_theme=Tela-circle-green-dark/" ~/.config/qt6ct/qt6ct.conf
+  sed -i "s/^AccentColor=.*/AccentColor=166,218,149/" ~/.config/kdeglobals
+
+  ln -sf ~/.config/cava/themes/macchiato.cava ~/.config/cava/themes/current_theme.cava
+
+  ln -sf ~/Pictures/albany_macchiato.webp ~/Pictures/current
+
+  ln -sf ~/.config/swayosd/macchiato.css ~/.config/swayosd/current.css
+
+  sed -i 's/catppuccin_latte\.theme/catppuccin_macchiato.theme/' "$HOME/.config/btop/btop.conf"
+  ln -sf ~/.config/dunst/latte.dunstrc ~/.config/dunst/dunstrc
+
+  restartproc
+  echo "Switched to dark mode"
+}
+
+function restartproc() {
+  pkill dunst
+  dunst &>/dev/null & disown
+
+  pkill swaybg
+  swaybg -i ~/Pictures/current &>/dev/null & disown
+
+  pkill swayosd-server
+  swayosd-server &>/dev/null & disown
+  echo Done
+}
+
+# Check for a --init argument
+if [[ $1 == "--init" ]]; then
+  init
+  exit 0
+fi
+
+if [[ $(gsettings get org.gnome.desktop.interface color-scheme) == *"prefer-dark"* ]]; then
+  latte
+else
+  macchiato
+fi
+
+
+if [[ $1 == "--latte" ]]; then
+  latte
+fi
+
+if [[ $1 == "--macchiato" ]]; then
+  macchiato
+fi
+
+
