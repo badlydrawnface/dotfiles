@@ -37,7 +37,7 @@ function packages() {
   rustup default stable
 
   if ! $(pacman -Q paru); then
-    echo -e "\n\033[0;32mInstalling paru...\n"
+    echo -e "\n\033[0;32mInstalling paru... (in /tmp)\n"
     cd /tmp && git clone https://aur.archlinux.org/paru.git && cd paru
     makepkg -si
   fi
@@ -45,6 +45,10 @@ function packages() {
   echo -e "\n\033[0;32mInstalling all dependancies for my config...\033[0m\n"
   cd $this_dir
   paru -S - --needed <packages.txt
+
+  echo -e "\n\033[0;32mEnabling uwsm systemd services...\033[0m\n"
+  systemctl --user enable --now vicinae
+  systemctl --user enable --now hyprpolkitagent
 }
 
 if [[ $1 = --packages ]]; then
