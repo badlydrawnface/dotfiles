@@ -36,11 +36,13 @@ function packages() {
   sudo pacman -S git base-devel pacman-contrib rustup --needed
   rustup default stable
 
-  echo -e "\n\033[0;32mInstalling paru...\n"
-  cd /tmp && git clone https://aur.archlinux.org/paru.git && cd paru
-  makepkg -si
+  if ! $(pacman -Q paru); then
+    echo -e "\n\033[0;32mInstalling paru...\n"
+    cd /tmp && git clone https://aur.archlinux.org/paru.git && cd paru
+    makepkg -si
+  fi
 
-  "\n\033[0;32mInstalling all dependancies for my config...\033[0m\n"
+  echo -e "\n\033[0;32mInstalling all dependancies for my config...\033[0m\n"
   cd $this_dir
   paru -S - --needed <packages.txt
 }
