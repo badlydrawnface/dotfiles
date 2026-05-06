@@ -30,17 +30,36 @@ function backup() {
   done
 }
 
-# backup 
-echo -e "\033[0;32mBacking up existing configuration files...\n"
+function packages() {
+  export this_dir="$(pwd)"
+  echo -e "\n\033[0;32mInstalling git and devel packages...\033[0m\n"
+  sudo pacman -S git base-devel pacman-contrib rustup --needed
+  rustup default stable
+
+  echo -e "\n\033[0;32mInstalling paru...\n"
+  cd /tmp && git clone https://aur.archlinux.org/paru.git && cd paru
+  makepkg -si
+
+  "\n\033[0;32mInstalling all dependancies for my config...\033[0m\n"
+  cd $this_dir
+  paru -S - --needed <packages.txt
+}
+
+if [[ $1 = --packages ]]; then
+  packages
+fi
+
+# backup
+echo -e "\n\033[0;32mBacking up existing configuration files...\033[0m\n"
 backup
 
-echo -e "\033[0;32mSetting up config files\n"
+echo -e "\n\033[0;32mSetting up config files\n"
 cp -r config/* ~/.config/
 cp -r local/* ~/.local/
 cp -r wallpapers/* ~/Pictures/
 
 # select a theme
-echo -e "\033[0;32mRunning theme switch script for the first time to set theme...\n"
+echo -e "\n\033[0;32mRunning theme switch script for the first time to set theme...\033[0m\n"
 local/bin/switch-theme --init
 
-echo -e "\033[0;32mDone! Make sure to add ~/.local/bin to your PATH if you haven't already.\n"
+echo -e "\n\033[0;32mDone! Make sure to add ~/.local/bin to your PATH if you haven't already.\033[0m\n"
