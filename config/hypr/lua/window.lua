@@ -22,25 +22,20 @@ hl.window_rule({
 	no_focus = true,
 })
 
--- Layer rules also return a handle.
--- local overlayLayerRule = hl.layer_rule({
---     name  = "no-anim-overlay",
---     match = { namespace = "^my-overlay$" },
---     no_anim = true,
--- })
--- overlayLayerRule:set_enabled(false)
-
--- Hyprland-run windowrule
 hl.window_rule({
-	name = "move-hyprland-run",
-	match = { class = "hyprland-run" },
-
-	move = "20 monitor_h-120",
+	name = "chromium pip",
+	match = {
+		initial_title = "Picture in picture",
+	},
+	pin = true,
 	float = true,
+	size = { 800, 450 },
+	border_size = 0,
+	opacity = "1 override",
 })
 
 -- blur waybar
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
 
--- vicinae
+-- vicinae as well
 hl.layer_rule({ match = { namespace = "vicinae" }, blur = true })

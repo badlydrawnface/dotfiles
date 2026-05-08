@@ -1,4 +1,8 @@
 #! /bin/bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Switch Themes
+# @vicinae.mode fullOutput
+# @vicinae.exec ["/bin/bash"]
 
 ## Switch themes for:
 ## GTK
@@ -16,17 +20,17 @@ function init() {
   fi
   gum choose --header "Select a flavor" "Latte" "Macchiato" "Mocha" | while read -r flavor; do
     case $flavor in
-      "Latte")
-        latte
-        ;;
-      "Macchiato")
-        macchiato
-        ;;
-      "Mocha")
-        ## TODO
-        ;;
+    "Latte")
+      latte
+      ;;
+    "Macchiato")
+      macchiato
+      ;;
+    "Mocha")
+      ## TODO
+      ;;
     esac
-  restartproc
+    restartproc
   done
 }
 
@@ -36,7 +40,6 @@ function latte() {
   gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
   gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-green-light'
   sed -i "s/^gtk-application-prefer-dark-theme=.*/gtk-application-prefer-dark-theme=0/" ~/.config/gtk-3.0/settings.ini
-
 
   # change gtk colors
   ln -sf ~/.config/gtk-3.0/catppuccin-latte-green.css ~/.config/gtk-3.0/gtk.css
@@ -106,13 +109,20 @@ function macchiato() {
 
 function restartproc() {
   pkill dunst
-  dunst &>/dev/null & disown
+  dunst &>/dev/null &
+  disown
 
   pkill swaybg
-  swaybg -i ~/Pictures/current &>/dev/null & disown
+  swaybg -i ~/Pictures/current &>/dev/null &
+  disown
+
+  pkill waybar
+  waybar &>/dev/null &
+  disown
 
   pkill swayosd-server
-  swayosd-server &>/dev/null & disown
+  swayosd-server &>/dev/null &
+  disown
   echo Done
 }
 
@@ -128,7 +138,6 @@ else
   macchiato
 fi
 
-
 if [[ $1 == "--latte" ]]; then
   latte
 fi
@@ -136,5 +145,3 @@ fi
 if [[ $1 == "--macchiato" ]]; then
   macchiato
 fi
-
-
