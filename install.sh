@@ -18,7 +18,7 @@ function backup() {
     "~/.config/swayosd/config",
     "~/.config/tmux/tmux.conf",
     "~/.config/vicinae/settings.json",
-    "~/.config/waybar/config",
+    "~/.config/waybar/config.jsonc",
     "~/.config/waybar/style.css",
     "~/.config/wlogout/wlogout.conf",
     "~/.config/wlogout/style.css"
@@ -49,6 +49,7 @@ function packages() {
   echo -e "\n\033[0;32mEnabling uwsm systemd services...\033[0m\n"
   systemctl --user enable --now vicinae
   systemctl --user enable --now hyprpolkitagent
+  systemctl --user enable --now hypridle
 }
 
 if [[ $1 = --packages ]]; then
@@ -66,6 +67,6 @@ cp -r wallpapers/* ~/Pictures/
 
 # select a theme
 echo -e "\n\033[0;32mRunning theme switch script for the first time to set theme...\033[0m\n"
-local/bin/switch-theme --init
+./local/bin/switch-theme --init
 
 echo -e "\n\033[0;32mDone! Make sure to add ~/.local/bin to your PATH if you haven't already.\033[0m\n"

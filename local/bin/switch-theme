@@ -67,7 +67,7 @@ function latte() {
   sed -i 's/catppuccin_macchiato\.theme/catppuccin_latte.theme/' "$HOME/.config/btop/btop.conf"
 
   # dunst
-  ln -sf ~/.config/dunst/macchiato.dunstrc ~/.config/dunst/dunstrc
+  ln -sf ~/.config/dunst/latte.dunstrc ~/.config/dunst/dunstrc
 
   restartproc
   echo "Switched to light mode"
@@ -98,7 +98,7 @@ function macchiato() {
   ln -sf ~/.config/swayosd/macchiato.css ~/.config/swayosd/current.css
 
   sed -i 's/catppuccin_latte\.theme/catppuccin_macchiato.theme/' "$HOME/.config/btop/btop.conf"
-  ln -sf ~/.config/dunst/latte.dunstrc ~/.config/dunst/dunstrc
+  ln -sf ~/.config/dunst/macchiato.dunstrc ~/.config/dunst/dunstrc
 
   restartproc
   echo "Switched to dark mode"
